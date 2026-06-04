@@ -30,7 +30,7 @@ int main() {
         printf("\n--- Produto %d ---\n", i + 1);
         
         printf("Nome: ");
-        scanf(" %[^\n]s", produtos[i].nome); // Lê strings com espaços
+        scanf(" %[^\n]s", produtos[i].nome);
         
         printf("Preco R$: ");
         scanf("%f", &produtos[i].preco);

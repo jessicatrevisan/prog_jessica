@@ -65,8 +65,6 @@ int main() {
     
     printf("Media da turma: %.2f\n", media);
     printf("Quantidade de aprovados (nota > 7): %d\n", aprovados);
-
-    // Libera a memória alocada
     free(turma);
 
     return 0;
