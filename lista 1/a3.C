@@ -19,7 +19,7 @@ int main() {
 
    
     float valorTotal = p.preco * p.quantidade;
-    float valorComDesconto = valorTotal * 0.90; // 10% de desconto
+    float valorComDesconto = valorTotal * 0.90; 
 
     
     printf("\n--- Resumo --- \n");
