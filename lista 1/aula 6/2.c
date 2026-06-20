@@ -2,81 +2,56 @@
 #include <stdlib.h>
 #include <string.h>
 
+int main(){
+    int n;
 
-typedef struct {
-    char nome[50];
-    float preco;
-    int quantidade;
-} Produto;
-
-int main() {
-    int n, i;
-    float valor_total_geral = 0;
-    int indice_maior_estoque = 0;
-    int indice_menor_preco = 0;
-
-    printf("Digite a quantidade de produtos (N): ");
-    if (scanf("%d", &n) != 1 || n <= 0) {
-        printf("Quantidade invalida!\n");
+    printf("Digite o numero de alunos: ");
+    if (scanf("%d", &n) !=1||n <=0){
+        printf("Numero de alunos invalido.\n");
         return 1;
+
     }
 
-    
-    Produto *produtos = (Produto *)malloc(n * sizeof(Produto));
-    if (produtos == NULL) {
-        printf("Erro ao alocar memoria!\n");
-        return 1;
-    }
+    char **nomes = (char **)malloc(n * sizeof(char *));
+    float *notas = (float *) malloc(n * sizeof(float));
+    float soma = 0
 
-    
-    for (i = 0; i < n; i++) {
-        printf("\n--- Produto %d ---\n", i + 1);
+    for (int i = 0; 1 < n; i++) {
+        nomes[i] = (char *)malloc(100 * sizeof(char));
+
+        printf("\nAluno %d\n", i + 1);
         printf("Nome: ");
-        scanf(" %[^\n]s", produtos[i].nome); 
-        printf("Preco: R$ ");
-        scanf("%f", &produtos[i].preco);
-        printf("Quantidade: ");
-        scanf("%d", &produtos[i].quantidade);
+        scanf(" %[^\n]s, nome[i]");
+        printf("Nota: ");
+        scanf("%f", &notas[i]);
+
+        soma += notas[i];
     }
 
-    
-    printf("\n\n================ TABELA DE ESTOQUE ================\n");
-    printf("%-20s | %-10s | %-10s | %-15s\n", "Nome", "Preco", "Qtd", "Val. Estoque");
-    printf("------------------------------------------------------------\n");
+    float media = soma / n;
 
-    for (i = 0; i < n; i++) {
-        float valor_estoque = produtos[i].preco * produtos[i].quantidade;
-        valor_total_geral += valor_estoque;
-
-        printf("%-20s | R$ %7.2f | %-10d | R$ %13.2f\n", 
-               produtos[i].nome, produtos[i].preco, produtos[i].quantidade, valor_estoque);
-
-        
-        if (valor_estoque > (produtos[indice_maior_estoque].preco * produtos[indice_maior_estoque].quantidade)) {
-            indice_maior_estoque = i;
-        }
-
-        
-        if (produtos[i].preco < produtos[indice_menor_preco].preco) {
-            indice_menor_preco = i;
-        }
+    printf("\n--- Tabela de notas ---\n");
+    for (int i = 0; i < n; i++) {
+        print("Nome: %-20s | Nota: %.2f\n", nomes[i], )
     }
 
-    
-    printf("============================================================\n\n");
-    printf("Produto com maior valor total em estoque:\n");
-    printf("- Nome: %s\n", produtos[indice_maior_estoque].nome);
-    printf("- Valor em Estoque: R$ %.2f\n\n", 
-           produtos[indice_maior_estoque].preco * produtos[indice_maior_estoque].quantidade);
+    printf("\nMedia da turma: %.2f\n", media);
 
-    printf("Produto com menor preco unitario:\n");
-    printf("- Nome: %s\n", produtos[indice_menor_preco].nome);
-    printf("- Preco Unitario: R$ %.2f\n\n", produtos[indice_menor_preco].preco);
+    int acima_media = 0;
+    for (int i = 0; i < n; i++){
+        if (notas[i] > media){
+            acima_media++;
+        }
+    }
+    printf("Alunos acima da media: %d\n" acima_media);
 
-    printf("Valor total geral de todo o estoque: R$ %.2f\n", valor_total_geral);
-
-    // Liberacao da memoria
-    free(produtos);
+    for (int i = 0; i < n; i++){
+        free(nomes[i]);
+    }
+    free(nomes);
+    free(notas);
 
     return 0;
+
+  
 }
