@@ -2,9 +2,9 @@
 
 Oi, Jéssica.
 
-Corrigi a sua Lista A. Nota: **1,42 de 1,50**, passaram 56 dos 59 casos de teste.
+Corrigi a sua Lista A. Nota: **1,05 de 1,50**, passaram 56 dos 59 casos de teste.
 
-Você entregou dentro do prazo.
+O último envio foi 18/10 17:22 e o prazo era 18/10 às 12:00. Entrega fora do prazo vale no máximo 70% da lista (1,05), por isso a nota ficou nesse limite.
 
 ## Exercício por exercício
 
