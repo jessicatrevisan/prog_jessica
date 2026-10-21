@@ -36,4 +36,6 @@ def intercala(lista_a, lista_b):
 def remove_repetidos(lista):
     """(Desafio) Devolve uma lista nova sem repetidos,
     mantendo a ordem da primeira aparicao."""
-    
+    lista_unica = list(dict.fromkeys(lista))
+    return lista_unica
+
